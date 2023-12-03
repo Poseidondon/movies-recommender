@@ -23,7 +23,7 @@ train a model and save weights.
 ## Prediction
 Python
 ```python
-from src.movie_recommender import MovieRecommender
+from benchmark.movie_recommender import MovieRecommender
 
 model_path = 'models/best/DCN.ckpt'
 movie_rec = MovieRecommender(model_path)
@@ -33,4 +33,12 @@ print(movie_rec.predict(user_id, recommend_seen=False))
 ```
 
 ## Evaluation
-TODO
+CLI
+```shell
+python benchamrk/evaluate.py
+
+RMSE:                   0.9815
+Factorized top 10:      0.016300
+Factorized top 50:      0.148750
+Factorized top 100:     0.310900
+```
