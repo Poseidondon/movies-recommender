@@ -28,7 +28,7 @@ It was decided to use the following features in this solution:
 [2.0-training-and-visualization.ipynb](../notebooks/2.0-training-and-visualization.ipynb)*
 
 Model in this project is
-*multitask (retrieval and ranking) [Deep & Cross Network (DCN)](https://arxiv.org/pdf/2008.13535.pdf)*
+*multitask (retrieval and rating) [Deep & Cross Network (DCN)](https://arxiv.org/pdf/2008.13535.pdf)*
 (further simply **combined model**).
 
 **DCN** consists of 2 main parts:
@@ -161,6 +161,17 @@ Factorized top 50:      0.148750
 Factorized top 100:     0.310900
 ```
 *[Factorized Top-k reference](https://sefidian.com/2022/04/30/understanding-factorized-top-k-factorizedtopk-metric-for-recommendation-systems-with-example/)*
+
+Also, [MAP@K and MAR@K](http://sdsawtelle.github.io/blog/output/mean-average-precision-MAP-for-recommender-systems.html) are available in [4.0-recmetrics](../notebooks/4.0-recmterics.ipynb),
+which is implemented using [recmetrics](https://github.com/statisticianinstilettos/recmetrics) package:
+```shell
+MAP@1:	0.006369426751592357
+MAR@1:	0.0012060627506487378
+MAP@5:	0.006340233545647558
+MAR@5:	0.0034913429306858796
+MAP@10:	0.0077628714161610225
+MAR@10:	0.00620951802509859
+```
 
 ## Results
 There is still work to do, such as optimizing model initialization and inference.

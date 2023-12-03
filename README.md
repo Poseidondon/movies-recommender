@@ -42,3 +42,12 @@ Factorized top 10:      0.016300
 Factorized top 50:      0.148750
 Factorized top 100:     0.310900
 ```
+Also, you could run [4.0-recmetrics](notebooks/4.0-recmterics.ipynb) to get MAP@K and MAR@K scores:
+```shell
+MAP@1:	0.006369426751592357
+MAR@1:	0.0012060627506487378
+MAP@5:	0.006340233545647558
+MAR@5:	0.0034913429306858796
+MAP@10:	0.0077628714161610225
+MAR@10:	0.00620951802509859
+```

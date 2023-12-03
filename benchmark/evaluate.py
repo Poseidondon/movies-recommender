@@ -1,8 +1,3 @@
-import tensorflow as tf
-tf.get_logger().setLevel('ERROR')
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '0'
-
 from pathlib import Path
 
 from movie_recommender import MovieRecommender

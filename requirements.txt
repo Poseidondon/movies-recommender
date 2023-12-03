@@ -1,3 +1,4 @@
 tensorflow~=2.13.1
 tensorflow-recommenders~=0.7.3
 tensorflow-datasets~=4.9.3
+recmterics~=0.1.5

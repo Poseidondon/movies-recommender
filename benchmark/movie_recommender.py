@@ -6,7 +6,10 @@ import numpy as np
 from typing import Union
 from pathlib import Path
 
-from DCN import MovielensModel
+try:
+    from DCN import MovielensModel
+except ModuleNotFoundError:
+    from benchmark.DCN import MovielensModel
 
 
 class MovieRecommender:
@@ -53,6 +56,9 @@ class MovieRecommender:
             tf.data.Dataset.zip((self.movies.batch(100), self.movies.batch(100).map(self.model.candidate_model)))
         )
 
+        # unbatched ratings
+        self.unbatched_ratings = self.ratings.unbatch().cache()
+
     def evaluate(self):
         """
         Return tensorflow metrics on validation dataset (20% partition of movielens-1ooK)
@@ -71,7 +77,7 @@ class MovieRecommender:
         """
 
         user_id = str(user_id)
-        user_ratings = self.ratings.unbatch().filter(lambda x: x['user_id'] == user_id)
+        user_ratings = self.unbatched_ratings.filter(lambda x: x['user_id'] == user_id)
         user_data = list(user_ratings.take(1))[0]
         user_data = {
             "user_id": np.array([user_data["user_id"].numpy()]),
